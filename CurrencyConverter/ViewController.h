@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CountryPickerViewController.h"
 
-@interface ViewController : UIViewController <NSURLConnectionDelegate>
+@interface ViewController : UIViewController <NSURLConnectionDelegate, CountryPickerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *conversionRateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *convertedToLabel;
 @property (weak, nonatomic) IBOutlet UILabel *convertFromLabel;
@@ -16,9 +17,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView *convertedToFlag;
 @property (weak, nonatomic) IBOutlet UIButton *convertFromButton;
 @property (weak, nonatomic) IBOutlet UIImageView *convertFromFlag;
+@property (strong, nonatomic) CountryPickerViewController *countryPickerVC;
 
 - (IBAction)convertedToButtonPressed:(UIButton *)sender;
-- (IBAction)convertFromButtonPressed:(UIButton *)sender;
 
 //might need to connect decimal to digit
 - (IBAction)digitPressed:(UIButton *)sender;

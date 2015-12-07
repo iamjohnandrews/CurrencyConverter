@@ -15,6 +15,7 @@
 		7F4DF9E41C151947004F5C62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F4DF9E21C151947004F5C62 /* LaunchScreen.storyboard */; };
 		7F4DF9EF1C151947004F5C62 /* CurrencyConverterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F4DF9EE1C151947004F5C62 /* CurrencyConverterTests.m */; };
 		7F4DF9FA1C151947004F5C62 /* CurrencyConverterUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F4DF9F91C151947004F5C62 /* CurrencyConverterUITests.m */; };
+		7FC4F59A1C16134900944C82 /* CountryPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC4F5991C16134900944C82 /* CountryPickerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		7F4DF9F51C151947004F5C62 /* CurrencyConverterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CurrencyConverterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F4DF9F91C151947004F5C62 /* CurrencyConverterUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CurrencyConverterUITests.m; sourceTree = "<group>"; };
 		7F4DF9FB1C151947004F5C62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7FC4F5981C16134900944C82 /* CountryPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountryPickerViewController.h; sourceTree = "<group>"; };
+		7FC4F5991C16134900944C82 /* CountryPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountryPickerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +106,8 @@
 			children = (
 				7F4DF9D71C151947004F5C62 /* AppDelegate.h */,
 				7F4DF9D81C151947004F5C62 /* AppDelegate.m */,
+				7FC4F5981C16134900944C82 /* CountryPickerViewController.h */,
+				7FC4F5991C16134900944C82 /* CountryPickerViewController.m */,
 				7F4DF9DA1C151947004F5C62 /* ViewController.h */,
 				7F4DF9DB1C151947004F5C62 /* ViewController.m */,
 				7F4DF9DD1C151947004F5C62 /* Main.storyboard */,
@@ -271,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F4DF9DC1C151947004F5C62 /* ViewController.m in Sources */,
+				7FC4F59A1C16134900944C82 /* CountryPickerViewController.m in Sources */,
 				7F4DF9D91C151947004F5C62 /* AppDelegate.m in Sources */,
 				7F4DF9D61C151947004F5C62 /* main.m in Sources */,
 			);
@@ -496,6 +502,7 @@
 				7F4DFA001C151947004F5C62 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7F4DFA011C151947004F5C62 /* Build configuration list for PBXNativeTarget "CurrencyConverterTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +511,7 @@
 				7F4DFA031C151947004F5C62 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7F4DFA041C151947004F5C62 /* Build configuration list for PBXNativeTarget "CurrencyConverterUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +520,7 @@
 				7F4DFA061C151947004F5C62 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

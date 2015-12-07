@@ -10,23 +10,51 @@
 
 static NSString *exchangeRatesLink = @"http://api.fixer.io/latest?base=USD";
 static NSString *exchangeRatesKey = @"exchangeRates";
+static NSString *lastConvertFrom = @"lastConvertFrom";
+static NSString *lastConvertedTo = @"lastConvertedTo";
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self getConversionRateForCurrency];
+    if ([[self retrieveExchangeRatesFromDevice] count] != 4) {
+        [self getConversionRateForCurrency];
+    }
+    [self setUpUI];
+}
+
+- (void)setUpUI {
+
+    self.convertedToButton.titleLabel.numberOfLines = 2;
+    self.convertedToButton.titleLabel.text = @"\nTap to change";
+    
+    self.convertFromLabel.text = @"0.0";
+    self.convertedToLabel.text = @"0.0";
+    
+//    self.conversionRateLabel.text;
 }
 
 
+- (void)pickCurrencyFor:(UIButton *)sender {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    self.countryPickerVC = [storyboard instantiateViewControllerWithIdentifier:@"CountryPickerVC"];
+    self.countryPickerVC.countryPickerDelegate = self;
+    [self presentViewController:self.countryPickerVC animated:YES completion:nil];
+}
+
+-(void)userSelectedCountry:(NSString *)abbreviation {
+    NSLog(@"delegation abbreviationg = %@", abbreviation);
+}
 
 #pragma mark Actions
 
 - (IBAction)convertedToButtonPressed:(UIButton *)sender {
+    [self pickCurrencyFor:sender];
 }
 
 - (IBAction)convertFromButtonPressed:(UIButton *)sender {
+    [self pickCurrencyFor:sender];
 }
 
 - (IBAction)digitPressed:(UIButton *)sender {
@@ -75,15 +103,19 @@ static NSString *exchangeRatesKey = @"exchangeRates";
 
 #pragma mark Persistence
 
-- (void)saveToDevice:(NSMutableDictionary *)exchangeRates {
+- (void)saveToDevice:(NSDictionary *)exchangeRates {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:exchangeRates forKey:exchangeRatesKey];
     [defaults synchronize];
     NSLog(@"exchangeRates = %@", exchangeRates);
 }
 
+- (NSDictionary *)retrieveExchangeRatesFromDevice {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:exchangeRatesKey];
+}
+
 - (void)dealloc {
-    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 }
 
 @end

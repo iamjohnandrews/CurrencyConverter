@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dCB-RT-P8c">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dCB-RT-P8c">
                                 <rect key="frame" x="380" y="178" width="200" height="50"/>
                                 <color key="backgroundColor" red="1" green="0.038406583299999998" blue="0.046691652860000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -33,21 +33,18 @@
                                     <action selector="convertedToButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RZZ-EZ-g1q"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJs-CO-Mq6">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJs-CO-Mq6">
                                 <rect key="frame" x="70" y="178" width="200" height="50"/>
                                 <color key="backgroundColor" red="1" green="0.038406583299999998" blue="0.046691652860000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="bBi-dZ-xWQ"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="USD"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="bBi-dZ-xWQ"/>
                                     </mask>
                                 </variation>
-                                <connections>
-                                    <action selector="convertFromButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="k1c-to-LgE"/>
-                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="atr-B6-Yvr">
                                 <rect key="frame" x="331" y="178" width="50" height="50"/>
@@ -322,7 +319,6 @@
                     </view>
                     <connections>
                         <outlet property="conversionRateLabel" destination="7xO-Uu-uHB" id="w4g-ja-2ip"/>
-                        <outlet property="convertFromButton" destination="fJs-CO-Mq6" id="HXR-vG-P3g"/>
                         <outlet property="convertFromFlag" destination="3o6-nt-MV3" id="qJ4-jb-agw"/>
                         <outlet property="convertFromLabel" destination="yaV-Iw-xJn" id="dzL-tW-wLr"/>
                         <outlet property="convertedToButton" destination="dCB-RT-P8c" id="lgF-ia-88s"/>
@@ -334,8 +330,90 @@
             </objects>
             <point key="canvasLocation" x="435" y="387"/>
         </scene>
+        <!--Country Picker View Controller-->
+        <scene sceneID="NZA-DQ-2pm">
+            <objects>
+                <viewController storyboardIdentifier="CountryPickerVC" id="SzH-st-k2O" customClass="CountryPickerViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="T3Z-Sw-HCo"/>
+                        <viewControllerLayoutGuide type="bottom" id="FW7-Qy-gFr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="p6G-Jm-akd">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pgk-4A-XGt">
+                                <rect key="frame" x="20" y="20" width="275" height="175"/>
+                                <state key="normal" backgroundImage="BRL"/>
+                                <connections>
+                                    <action selector="countryFlagButtonPressed:" destination="SzH-st-k2O" eventType="touchUpInside" id="rVm-tK-gbb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0CD-8a-5H4">
+                                <rect key="frame" x="20" y="214" width="275" height="175"/>
+                                <state key="normal" backgroundImage="EUR"/>
+                                <connections>
+                                    <action selector="countryFlagButtonPressed:" destination="SzH-st-k2O" eventType="touchUpInside" id="dyL-aP-nma"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U7V-Co-WiQ">
+                                <rect key="frame" x="20" y="409" width="275" height="175"/>
+                                <state key="normal" backgroundImage="GBP"/>
+                                <connections>
+                                    <action selector="countryFlagButtonPressed:" destination="SzH-st-k2O" eventType="touchUpInside" id="0wM-AF-wT6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nOa-4q-jn3">
+                                <rect key="frame" x="305" y="20" width="275" height="175"/>
+                                <state key="normal" backgroundImage="JPY"/>
+                                <connections>
+                                    <action selector="countryFlagButtonPressed:" destination="SzH-st-k2O" eventType="touchUpInside" id="TdT-h8-O6e"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OET-jx-OOf">
+                                <rect key="frame" x="305" y="214" width="275" height="175"/>
+                                <state key="normal" backgroundImage="USD"/>
+                                <connections>
+                                    <action selector="countryFlagButtonPressed:" destination="SzH-st-k2O" eventType="touchUpInside" id="Mkf-7A-E2a"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="U7V-Co-WiQ" firstAttribute="height" secondItem="Pgk-4A-XGt" secondAttribute="height" id="3MY-Vg-Afd"/>
+                            <constraint firstItem="OET-jx-OOf" firstAttribute="height" secondItem="Pgk-4A-XGt" secondAttribute="height" id="AXn-1H-YCM"/>
+                            <constraint firstItem="nOa-4q-jn3" firstAttribute="height" secondItem="Pgk-4A-XGt" secondAttribute="height" id="Iil-pE-npw"/>
+                            <constraint firstItem="0CD-8a-5H4" firstAttribute="width" secondItem="Pgk-4A-XGt" secondAttribute="width" id="Iys-hd-gdG"/>
+                            <constraint firstItem="OET-jx-OOf" firstAttribute="width" secondItem="Pgk-4A-XGt" secondAttribute="width" id="M36-Si-Kwg"/>
+                            <constraint firstItem="nOa-4q-jn3" firstAttribute="width" secondItem="Pgk-4A-XGt" secondAttribute="width" id="O0t-lu-gq2"/>
+                            <constraint firstItem="nOa-4q-jn3" firstAttribute="trailing" secondItem="p6G-Jm-akd" secondAttribute="trailingMargin" id="PjF-q4-sla"/>
+                            <constraint firstItem="OET-jx-OOf" firstAttribute="leading" secondItem="nOa-4q-jn3" secondAttribute="leading" id="U39-IV-p3k"/>
+                            <constraint firstItem="OET-jx-OOf" firstAttribute="top" secondItem="nOa-4q-jn3" secondAttribute="bottom" constant="19" id="WSV-Lt-mJp"/>
+                            <constraint firstItem="0CD-8a-5H4" firstAttribute="top" secondItem="Pgk-4A-XGt" secondAttribute="bottom" constant="19" id="XgC-YI-Uga"/>
+                            <constraint firstItem="0CD-8a-5H4" firstAttribute="height" secondItem="Pgk-4A-XGt" secondAttribute="height" id="YZ6-nl-VMi"/>
+                            <constraint firstItem="Pgk-4A-XGt" firstAttribute="top" secondItem="T3Z-Sw-HCo" secondAttribute="bottom" id="YmQ-qK-l4F"/>
+                            <constraint firstItem="U7V-Co-WiQ" firstAttribute="leading" secondItem="Pgk-4A-XGt" secondAttribute="leading" id="cCq-pt-c4f"/>
+                            <constraint firstItem="U7V-Co-WiQ" firstAttribute="top" secondItem="0CD-8a-5H4" secondAttribute="bottom" constant="20" id="cDe-jN-rXg"/>
+                            <constraint firstItem="Pgk-4A-XGt" firstAttribute="leading" secondItem="p6G-Jm-akd" secondAttribute="leadingMargin" id="fbk-iL-1AP"/>
+                            <constraint firstItem="U7V-Co-WiQ" firstAttribute="leading" secondItem="p6G-Jm-akd" secondAttribute="leadingMargin" id="gVr-PF-cIn"/>
+                            <constraint firstItem="FW7-Qy-gFr" firstAttribute="top" secondItem="U7V-Co-WiQ" secondAttribute="bottom" constant="16" id="kRS-sk-FfH"/>
+                            <constraint firstItem="0CD-8a-5H4" firstAttribute="leading" secondItem="Pgk-4A-XGt" secondAttribute="leading" id="p8q-5K-8UV"/>
+                            <constraint firstItem="nOa-4q-jn3" firstAttribute="top" secondItem="T3Z-Sw-HCo" secondAttribute="bottom" id="tGg-Fy-reL"/>
+                            <constraint firstItem="nOa-4q-jn3" firstAttribute="leading" secondItem="Pgk-4A-XGt" secondAttribute="trailing" constant="10" id="tfR-Di-m6M"/>
+                            <constraint firstItem="U7V-Co-WiQ" firstAttribute="width" secondItem="Pgk-4A-XGt" secondAttribute="width" id="xLT-Me-og4"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FDK-8L-V6k" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1087" y="387"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="BRL" width="805" height="562"/>
+        <image name="EUR" width="1969" height="1336"/>
+        <image name="GBP" width="440" height="280"/>
+        <image name="JPY" width="800" height="533"/>
         <image name="USD" width="2000" height="1053"/>
     </resources>
 </document>
