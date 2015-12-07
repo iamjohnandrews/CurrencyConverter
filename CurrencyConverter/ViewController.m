@@ -16,12 +16,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+#pragma mark Actions
+
+- (IBAction)convertedToButtonPressed:(UIButton *)sender {
 }
 
+- (IBAction)convertFromButtonPressed:(UIButton *)sender {
+}
+
+- (IBAction)digitPressed:(UIButton *)sender {
+}
+
+- (IBAction)switchPressed:(UIButton *)sender {
+}
+
+- (IBAction)backPressed:(id)sender {
+}
+
+- (IBAction)clearPressed:(UIButton *)sender {
+}
 @end
