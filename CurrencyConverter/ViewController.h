@@ -20,10 +20,12 @@
 - (IBAction)convertedToButtonPressed:(UIButton *)sender;
 - (IBAction)convertFromButtonPressed:(UIButton *)sender;
 
+//might need to connect decimal to digit
 - (IBAction)digitPressed:(UIButton *)sender;
 - (IBAction)switchPressed:(UIButton *)sender;
 - (IBAction)backPressed:(id)sender;
 - (IBAction)clearPressed:(UIButton *)sender;
+
 
 @end
 
