@@ -21,9 +21,9 @@ static NSString *defaultCurrencySetting = @"0.0";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    if ([[self retrieveExchangeRatesFromDevice] count] != 4) {
-        [self getConversionRateForCurrency];
-    }
+    
+    [self getConversionRateForCurrency];
+#warning delete this below
     NSString *country = [self retrieveLastCountryLookedUp];
     [self setUpUI:country];
     NSLog(@"country = %@", country);
@@ -38,6 +38,7 @@ static NSString *defaultCurrencySetting = @"0.0";
     }
     self.convertedToButton.titleLabel.numberOfLines = 2;
     self.convertedToButton.titleLabel.text = abbreviation;
+    self.convertedToButton.titleLabel.textAlignment = NSTextAlignmentCenter;
     self.convertedToFlag.image = [UIImage imageNamed:abbreviation];
     NSString *conversionRate = [[self retrieveExchangeRatesFromDevice] objectForKey:abbreviation];
     self.conversionRateLabel.text = [NSString stringWithFormat:@"1.00 USD = %@ %@", conversionRate, abbreviation];
@@ -66,7 +67,12 @@ static NSString *defaultCurrencySetting = @"0.0";
         self.convertFromLabel.text = @"";
     }
     NSString *newString = [self.convertFromLabel.text stringByAppendingString:sender.titleLabel.text];
-    self.convertFromLabel.text = newString;
+    NSString *removeCommaString = [newString stringByReplacingOccurrencesOfString:@"," withString:@""];
+    
+    NSNumberFormatter *formatter = [NSNumberFormatter new];
+    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    NSString *formatted = [formatter stringFromNumber:[NSNumber numberWithDouble:[removeCommaString doubleValue]]];
+    self.convertFromLabel.text = formatted;
     
     [self calculateConversion];
 }
@@ -83,18 +89,21 @@ static NSString *defaultCurrencySetting = @"0.0";
 }
 
 - (void)calculateConversion {
-    NSString *rateString = [[self retrieveExchangeRatesFromDevice] objectForKey:self.lastSelection];
-    NSInteger rate = [rateString integerValue];
-    NSInteger amount = [self.convertFromLabel.text integerValue];
-    NSInteger convertedAmount = rate * amount;
-    NSLog(@"rate =%ld \n amount =%ld \n convertedAmount =%ld", (long)rate, (long)amount, (long)convertedAmount);
-    self.convertedToLabel.text = [NSString stringWithFormat:@"%ld", (long)convertedAmount];
+    double rate = [[[self retrieveExchangeRatesFromDevice] objectForKey:self.lastSelection] doubleValue];
+    NSString *removeCommaString = [self.convertFromLabel.text stringByReplacingOccurrencesOfString:@"," withString:@""];
+    double amount = [removeCommaString doubleValue];
+    double convertedAmount = rate * amount;
+    
+    NSNumberFormatter *formatter = [NSNumberFormatter new];
+    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    NSString *formatted = [formatter stringFromNumber:[NSNumber numberWithDouble:convertedAmount]];
+
+    self.convertedToLabel.text = formatted;
 }
 
 #pragma mark Networking
 
 - (void)getConversionRateForCurrency {
-    
     ViewController *__weak weakSelf = self;
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:exchangeRatesLink]];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
@@ -129,19 +138,20 @@ static NSString *defaultCurrencySetting = @"0.0";
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:exchangeRates forKey:exchangeRatesKey];
     [defaults synchronize];
-    NSLog(@"exchangeRates = %@", exchangeRates);
 }
 
 - (NSDictionary *)retrieveExchangeRatesFromDevice {
     return [[NSUserDefaults standardUserDefaults] objectForKey:exchangeRatesKey];
 }
-
+#warning delete this below
 - (NSString *)retrieveLastCountryLookedUp {
     return [[NSUserDefaults standardUserDefaults] objectForKey:lastConvertedTo];
 }
 
+
 - (void)dealloc {
     NSLog(@"dealloc called");
+    self.countryPickerVC.countryPickerDelegate = nil;
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:self.lastSelection forKey:lastConvertedTo];
     [defaults synchronize];
