@@ -6,16 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CurrencyConverter/CountryPickerViewController.m"
-            timestampString = "471211512.832343"
+            filePath = "CurrencyConverter/ViewController.m"
+            timestampString = "471215808.208696"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "-countryFlagButtonPressed:"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "-calculateConversion"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

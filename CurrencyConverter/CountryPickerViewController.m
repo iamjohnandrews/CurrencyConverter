@@ -20,7 +20,7 @@
 }
 
 - (IBAction)countryFlagButtonPressed:(UIButton *)sender {
-    NSArray *countryAbbreviations = @[@"BRL", @"JPY", @"EUR", @"GBP", @"USD"];
+    NSArray *countryAbbreviations = @[@"BRL", @"JPY", @"EUR", @"GBP"];
     [self.countryPickerDelegate userSelectedCountry:countryAbbreviations[sender.tag]];
     [self dismissViewControllerAnimated:YES completion:nil];
 }

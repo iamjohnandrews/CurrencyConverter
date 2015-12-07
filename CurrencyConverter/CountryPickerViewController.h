@@ -13,7 +13,7 @@
 
 @end
 
-@interface CountryPickerViewController : UIViewController <CountryPickerDelegate>
+@interface CountryPickerViewController : UIViewController
 - (IBAction)countryFlagButtonPressed:(UIButton *)sender;
 @property (strong, nonatomic) id<CountryPickerDelegate> countryPickerDelegate;
 

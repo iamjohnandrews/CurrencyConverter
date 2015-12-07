@@ -15,7 +15,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *convertFromLabel;
 @property (weak, nonatomic) IBOutlet UIButton *convertedToButton;
 @property (weak, nonatomic) IBOutlet UIImageView *convertedToFlag;
-@property (weak, nonatomic) IBOutlet UIButton *convertFromButton;
 @property (weak, nonatomic) IBOutlet UIImageView *convertFromFlag;
 @property (strong, nonatomic) CountryPickerViewController *countryPickerVC;
 
@@ -23,7 +22,6 @@
 
 //might need to connect decimal to digit
 - (IBAction)digitPressed:(UIButton *)sender;
-- (IBAction)switchPressed:(UIButton *)sender;
 - (IBAction)backPressed:(id)sender;
 - (IBAction)clearPressed:(UIButton *)sender;
 

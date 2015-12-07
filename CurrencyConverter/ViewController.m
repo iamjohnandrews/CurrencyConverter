@@ -10,31 +10,38 @@
 
 static NSString *exchangeRatesLink = @"http://api.fixer.io/latest?base=USD";
 static NSString *exchangeRatesKey = @"exchangeRates";
-static NSString *lastConvertFrom = @"lastConvertFrom";
 static NSString *lastConvertedTo = @"lastConvertedTo";
+static NSString *defaultCurrencySetting = @"0.0";
+
+@interface ViewController ()
+@property (strong, nonatomic) NSString *lastSelection;
+@end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     if ([[self retrieveExchangeRatesFromDevice] count] != 4) {
         [self getConversionRateForCurrency];
     }
-    [self setUpUI];
+    NSString *country = [self retrieveLastCountryLookedUp];
+    [self setUpUI:country];
+    NSLog(@"country = %@", country);
 }
 
-- (void)setUpUI {
-
+- (void)setUpUI:(NSString *)abbreviation {
+    self.convertFromLabel.text = defaultCurrencySetting;
+    self.convertedToLabel.text = defaultCurrencySetting;
+    
+    if (!abbreviation) {
+        return;
+    }
     self.convertedToButton.titleLabel.numberOfLines = 2;
-    self.convertedToButton.titleLabel.text = @"\nTap to change";
-    
-    self.convertFromLabel.text = @"0.0";
-    self.convertedToLabel.text = @"0.0";
-    
-//    self.conversionRateLabel.text;
+    self.convertedToButton.titleLabel.text = abbreviation;
+    self.convertedToFlag.image = [UIImage imageNamed:abbreviation];
+    NSString *conversionRate = [[self retrieveExchangeRatesFromDevice] objectForKey:abbreviation];
+    self.conversionRateLabel.text = [NSString stringWithFormat:@"1.00 USD = %@ %@", conversionRate, abbreviation];
 }
-
 
 - (void)pickCurrencyFor:(UIButton *)sender {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -44,7 +51,8 @@ static NSString *lastConvertedTo = @"lastConvertedTo";
 }
 
 -(void)userSelectedCountry:(NSString *)abbreviation {
-    NSLog(@"delegation abbreviationg = %@", abbreviation);
+    self.lastSelection = abbreviation;
+    [self setUpUI:abbreviation];
 }
 
 #pragma mark Actions
@@ -53,27 +61,41 @@ static NSString *lastConvertedTo = @"lastConvertedTo";
     [self pickCurrencyFor:sender];
 }
 
-- (IBAction)convertFromButtonPressed:(UIButton *)sender {
-    [self pickCurrencyFor:sender];
-}
-
 - (IBAction)digitPressed:(UIButton *)sender {
-}
-
-- (IBAction)switchPressed:(UIButton *)sender {
+    if ([self.convertFromLabel.text isEqualToString:defaultCurrencySetting]) {
+        self.convertFromLabel.text = @"";
+    }
+    NSString *newString = [self.convertFromLabel.text stringByAppendingString:sender.titleLabel.text];
+    self.convertFromLabel.text = newString;
+    
+    [self calculateConversion];
 }
 
 - (IBAction)backPressed:(id)sender {
+    NSString *newString = [self.convertFromLabel.text substringToIndex:[self.convertFromLabel.text length]-1];
+    self.convertFromLabel.text = newString;
+    [self calculateConversion];
 }
 
 - (IBAction)clearPressed:(UIButton *)sender {
+    self.convertFromLabel.text = defaultCurrencySetting;
+    self.convertedToLabel.text = defaultCurrencySetting;
+}
+
+- (void)calculateConversion {
+    NSString *rateString = [[self retrieveExchangeRatesFromDevice] objectForKey:self.lastSelection];
+    NSInteger rate = [rateString integerValue];
+    NSInteger amount = [self.convertFromLabel.text integerValue];
+    NSInteger convertedAmount = rate * amount;
+    NSLog(@"rate =%ld \n amount =%ld \n convertedAmount =%ld", (long)rate, (long)amount, (long)convertedAmount);
+    self.convertedToLabel.text = [NSString stringWithFormat:@"%ld", (long)convertedAmount];
 }
 
 #pragma mark Networking
 
 - (void)getConversionRateForCurrency {
     
-    __weak __typeof(self) weakSelf = self;
+    ViewController *__weak weakSelf = self;
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:exchangeRatesLink]];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     
@@ -114,8 +136,15 @@ static NSString *lastConvertedTo = @"lastConvertedTo";
     return [[NSUserDefaults standardUserDefaults] objectForKey:exchangeRatesKey];
 }
 
+- (NSString *)retrieveLastCountryLookedUp {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:lastConvertedTo];
+}
+
 - (void)dealloc {
+    NSLog(@"dealloc called");
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:self.lastSelection forKey:lastConvertedTo];
+    [defaults synchronize];
 }
 
 @end

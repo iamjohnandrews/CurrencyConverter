@@ -17,13 +17,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dCB-RT-P8c">
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dCB-RT-P8c">
                                 <rect key="frame" x="380" y="178" width="200" height="50"/>
-                                <color key="backgroundColor" red="1" green="0.038406583299999998" blue="0.046691652860000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="0.87386797839999997" blue="0.89247507449999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="79l-wM-j6X"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Tap to change"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="79l-wM-j6X"/>
@@ -33,13 +33,15 @@
                                     <action selector="convertedToButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RZZ-EZ-g1q"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJs-CO-Mq6">
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJs-CO-Mq6">
                                 <rect key="frame" x="70" y="178" width="200" height="50"/>
-                                <color key="backgroundColor" red="1" green="0.038406583299999998" blue="0.046691652860000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="0.87386797837410013" blue="0.89247507452022279" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="bBi-dZ-xWQ"/>
                                 </constraints>
-                                <state key="normal" title="USD"/>
+                                <state key="normal" title="USD">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="bBi-dZ-xWQ"/>
@@ -60,24 +62,22 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7xO-Uu-uHB">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7xO-Uu-uHB">
                                 <rect key="frame" x="20" y="20" width="560" height="21"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.91852114898989889" green="0.91852114898989889" blue="0.91852114898989889" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="200" verticalCompressionResistancePriority="751" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iDe-Kc-jvP">
                                 <rect key="frame" x="331" y="49" width="249" height="121"/>
-                                <color key="backgroundColor" red="0.29439726875906447" green="1" blue="0.27112759630061189" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="200" verticalCompressionResistancePriority="751" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yaV-Iw-xJn">
                                 <rect key="frame" x="20" y="49" width="249" height="121"/>
-                                <color key="backgroundColor" red="0.2943972688" green="1" blue="0.2711275963" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -97,6 +97,9 @@
                                 <state key="normal" title="7">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="digitPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qBx-eP-ktG"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mj9-b4-7xg">
                                 <rect key="frame" x="161" y="236" width="135" height="80"/>
@@ -105,6 +108,9 @@
                                 <state key="normal" title="8">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="digitPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="naO-ue-vxG"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ncQ-pK-pFb">
                                 <rect key="frame" x="303" y="236" width="135" height="80"/>
@@ -135,6 +141,9 @@
                                 <state key="normal" title="4">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="digitPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wNb-NP-TtI"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bt1-wo-cZC">
                                 <rect key="frame" x="161" y="324" width="135" height="80"/>
@@ -143,6 +152,9 @@
                                 <state key="normal" title="5">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="digitPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Uwd-vP-Y2W"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jW0-el-xL5">
                                 <rect key="frame" x="303" y="324" width="135" height="80"/>
@@ -173,6 +185,9 @@
                                 <state key="normal" title="1">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="digitPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0qe-R8-2nO"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rf0-7n-Mmi">
                                 <rect key="frame" x="161" y="412" width="135" height="80"/>
@@ -192,17 +207,17 @@
                                 <state key="normal" title="3">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="digitPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sbv-L5-0YN"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jgm-ZP-jRE">
                                 <rect key="frame" x="445" y="412" width="135" height="168"/>
                                 <color key="backgroundColor" red="0.85114847614659794" green="0.93219933201485417" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
-                                <state key="normal" title="Switch">
+                                <state key="normal">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
-                                <connections>
-                                    <action selector="switchPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="voU-BY-V3T"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gfs-tH-bVK">
                                 <rect key="frame" x="20" y="500" width="135" height="80"/>
@@ -211,6 +226,9 @@
                                 <state key="normal" title=".">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="digitPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rvv-EE-JKu"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wh5-Y0-MBf">
                                 <rect key="frame" x="161" y="500" width="276" height="80"/>
@@ -219,6 +237,9 @@
                                 <state key="normal" title="0">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="digitPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Xj-Kk-NB9"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -356,13 +377,6 @@
                                     <action selector="countryFlagButtonPressed:" destination="SzH-st-k2O" eventType="touchUpInside" id="dyL-aP-nma"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U7V-Co-WiQ">
-                                <rect key="frame" x="20" y="409" width="275" height="175"/>
-                                <state key="normal" backgroundImage="GBP"/>
-                                <connections>
-                                    <action selector="countryFlagButtonPressed:" destination="SzH-st-k2O" eventType="touchUpInside" id="0wM-AF-wT6"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nOa-4q-jn3">
                                 <rect key="frame" x="305" y="20" width="275" height="175"/>
                                 <state key="normal" backgroundImage="JPY"/>
@@ -372,7 +386,7 @@
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OET-jx-OOf">
                                 <rect key="frame" x="305" y="214" width="275" height="175"/>
-                                <state key="normal" backgroundImage="USD"/>
+                                <state key="normal" backgroundImage="GBP"/>
                                 <connections>
                                     <action selector="countryFlagButtonPressed:" destination="SzH-st-k2O" eventType="touchUpInside" id="Mkf-7A-E2a"/>
                                 </connections>
@@ -380,7 +394,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="U7V-Co-WiQ" firstAttribute="height" secondItem="Pgk-4A-XGt" secondAttribute="height" id="3MY-Vg-Afd"/>
                             <constraint firstItem="OET-jx-OOf" firstAttribute="height" secondItem="Pgk-4A-XGt" secondAttribute="height" id="AXn-1H-YCM"/>
                             <constraint firstItem="nOa-4q-jn3" firstAttribute="height" secondItem="Pgk-4A-XGt" secondAttribute="height" id="Iil-pE-npw"/>
                             <constraint firstItem="0CD-8a-5H4" firstAttribute="width" secondItem="Pgk-4A-XGt" secondAttribute="width" id="Iys-hd-gdG"/>
@@ -392,15 +405,11 @@
                             <constraint firstItem="0CD-8a-5H4" firstAttribute="top" secondItem="Pgk-4A-XGt" secondAttribute="bottom" constant="19" id="XgC-YI-Uga"/>
                             <constraint firstItem="0CD-8a-5H4" firstAttribute="height" secondItem="Pgk-4A-XGt" secondAttribute="height" id="YZ6-nl-VMi"/>
                             <constraint firstItem="Pgk-4A-XGt" firstAttribute="top" secondItem="T3Z-Sw-HCo" secondAttribute="bottom" id="YmQ-qK-l4F"/>
-                            <constraint firstItem="U7V-Co-WiQ" firstAttribute="leading" secondItem="Pgk-4A-XGt" secondAttribute="leading" id="cCq-pt-c4f"/>
-                            <constraint firstItem="U7V-Co-WiQ" firstAttribute="top" secondItem="0CD-8a-5H4" secondAttribute="bottom" constant="20" id="cDe-jN-rXg"/>
+                            <constraint firstItem="FW7-Qy-gFr" firstAttribute="top" secondItem="OET-jx-OOf" secondAttribute="bottom" constant="211" id="fFb-rv-rs6"/>
                             <constraint firstItem="Pgk-4A-XGt" firstAttribute="leading" secondItem="p6G-Jm-akd" secondAttribute="leadingMargin" id="fbk-iL-1AP"/>
-                            <constraint firstItem="U7V-Co-WiQ" firstAttribute="leading" secondItem="p6G-Jm-akd" secondAttribute="leadingMargin" id="gVr-PF-cIn"/>
-                            <constraint firstItem="FW7-Qy-gFr" firstAttribute="top" secondItem="U7V-Co-WiQ" secondAttribute="bottom" constant="16" id="kRS-sk-FfH"/>
                             <constraint firstItem="0CD-8a-5H4" firstAttribute="leading" secondItem="Pgk-4A-XGt" secondAttribute="leading" id="p8q-5K-8UV"/>
                             <constraint firstItem="nOa-4q-jn3" firstAttribute="top" secondItem="T3Z-Sw-HCo" secondAttribute="bottom" id="tGg-Fy-reL"/>
                             <constraint firstItem="nOa-4q-jn3" firstAttribute="leading" secondItem="Pgk-4A-XGt" secondAttribute="trailing" constant="10" id="tfR-Di-m6M"/>
-                            <constraint firstItem="U7V-Co-WiQ" firstAttribute="width" secondItem="Pgk-4A-XGt" secondAttribute="width" id="xLT-Me-og4"/>
                         </constraints>
                     </view>
                 </viewController>
