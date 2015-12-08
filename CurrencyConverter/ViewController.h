@@ -19,12 +19,13 @@
 @property (strong, nonatomic) CountryPickerViewController *countryPickerVC;
 
 - (IBAction)convertedToButtonPressed:(UIButton *)sender;
-
-//might need to connect decimal to digit
 - (IBAction)digitPressed:(UIButton *)sender;
-- (IBAction)backPressed:(id)sender;
+- (IBAction)backPressed:(UIButton *)sender;
 - (IBAction)clearPressed:(UIButton *)sender;
 
+// make public in order to test
+- (void)parseData:(NSDictionary *)responseObject;
+- (void)saveToDevice:(NSDictionary *)exchangeRates;
 
 @end
 

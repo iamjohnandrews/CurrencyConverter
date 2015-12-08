@@ -10,7 +10,6 @@
 
 static NSString *exchangeRatesLink = @"http://api.fixer.io/latest?base=USD";
 static NSString *exchangeRatesKey = @"exchangeRates";
-static NSString *lastConvertedTo = @"lastConvertedTo";
 static NSString *defaultCurrencySetting = @"0.0";
 
 @interface ViewController ()
@@ -23,10 +22,7 @@ static NSString *defaultCurrencySetting = @"0.0";
     [super viewDidLoad];
     
     [self getConversionRateForCurrency];
-#warning delete this below
-    NSString *country = [self retrieveLastCountryLookedUp];
-    [self setUpUI:country];
-    NSLog(@"country = %@", country);
+    [self setUpUI:nil];
 }
 
 - (void)setUpUI:(NSString *)abbreviation {
@@ -77,7 +73,7 @@ static NSString *defaultCurrencySetting = @"0.0";
     [self calculateConversion];
 }
 
-- (IBAction)backPressed:(id)sender {
+- (IBAction)backPressed:(UIButton *)sender {
     NSString *newString = [self.convertFromLabel.text substringToIndex:[self.convertFromLabel.text length]-1];
     self.convertFromLabel.text = newString;
     [self calculateConversion];
@@ -142,19 +138,6 @@ static NSString *defaultCurrencySetting = @"0.0";
 
 - (NSDictionary *)retrieveExchangeRatesFromDevice {
     return [[NSUserDefaults standardUserDefaults] objectForKey:exchangeRatesKey];
-}
-#warning delete this below
-- (NSString *)retrieveLastCountryLookedUp {
-    return [[NSUserDefaults standardUserDefaults] objectForKey:lastConvertedTo];
-}
-
-
-- (void)dealloc {
-    NSLog(@"dealloc called");
-    self.countryPickerVC.countryPickerDelegate = nil;
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:self.lastSelection forKey:lastConvertedTo];
-    [defaults synchronize];
 }
 
 @end
