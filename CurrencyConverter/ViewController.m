@@ -32,7 +32,7 @@ static NSString *defaultCurrencySetting = @"0.0";
     if (!abbreviation) {
         return;
     }
-    self.convertedToButton.titleLabel.numberOfLines = 2;
+    self.convertedToButton.titleLabel.numberOfLines = 0;
     self.convertedToButton.titleLabel.text = abbreviation;
     self.convertedToButton.titleLabel.textAlignment = NSTextAlignmentCenter;
     self.convertedToFlag.image = [UIImage imageNamed:abbreviation];
