@@ -22,16 +22,16 @@ static NSString *defaultCurrencySetting = @"0.0";
     [super viewDidLoad];
     
     [self getConversionRateForCurrency];
-    [self setUpUI:nil];
+    [self setCurrencyLabelsToZero];
+}
+
+- (void)setCurrencyLabelsToZero {
+    self.convertFromLabel.text = defaultCurrencySetting;
+    self.convertedToLabel.text = defaultCurrencySetting;
 }
 
 - (void)setUpUI:(NSString *)abbreviation {
-    self.convertFromLabel.text = defaultCurrencySetting;
-    self.convertedToLabel.text = defaultCurrencySetting;
-    
-    if (!abbreviation) {
-        return;
-    }
+    [self setCurrencyLabelsToZero];
     self.convertedToButton.titleLabel.numberOfLines = 0;
     self.convertedToButton.titleLabel.text = abbreviation;
     self.convertedToButton.titleLabel.textAlignment = NSTextAlignmentCenter;
